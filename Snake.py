@@ -42,6 +42,15 @@ class Snake():
         # With -1 we get always the last segment
         self.add_segment(self.segments[-1].position())
 
+    def reset(self):
+        for seg in self.segments:
+            seg.goto(1000, 1000)
+        # Clear list of segments
+        self.segments.clear()
+        # and then create a new fresh snake
+        self.create_snake()
+        self.head = self.segments[0]
+
 
     def up(self):
         if self.head.heading() != DOWN:
